@@ -1,0 +1,144 @@
+<div class="edit-user-container">
+    <h2>ویرایش کاربر</h2>
+
+    <div *ngIf="!userDetail" class="loading-state">
+        <div class="spinner"></div>
+        <p>در حال بارگذاری...</p>
+    </div>
+
+    <form *ngIf="userDetail" (ngSubmit)="onSubmit()" #userForm="ngForm" class="edit-user-form">
+        <div class="form-group">
+            <label for="userName">نام کاربری</label>
+            <input 
+                type="text" 
+                id="userName"
+                name="userName"
+                [(ngModel)]="userDetail.userName"
+                required
+                class="form-control"
+                [disabled]="loading"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="email">ایمیل</label>
+            <input 
+                type="email" 
+                id="email"
+                name="email"
+                [(ngModel)]="userDetail.email"
+                required
+                email
+                class="form-control"
+                [disabled]="loading"
+            >            <div class="confirmation-checkbox">
+                <label class="checkbox-label">
+                    <input 
+                        type="checkbox" 
+                        name="emailConfirmed"
+                        [(ngModel)]="userDetail.emailConfirmed"
+                        [disabled]="loading"
+                    >
+                    تایید ایمیل
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">شماره تلفن</label>
+            <input 
+                type="tel" 
+                id="phoneNumber"
+                name="phone"
+                [(ngModel)]="userDetail.phone"
+                required
+                class="form-control"
+                [disabled]="loading"
+            >            <div class="confirmation-checkbox">
+                <label class="checkbox-label">
+                    <input 
+                        type="checkbox" 
+                        name="phoneConfirmed"
+                        [(ngModel)]="userDetail.phoneConfirmed"
+                        [disabled]="loading"
+                    >
+                    تایید شماره تلفن
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">جنسیت</label>
+            <select 
+                id="gender"
+                name="genderId"
+                [(ngModel)]="userDetail.genderId"
+                required
+                class="form-control"
+                [disabled]="loading"
+            >
+                <option value="">انتخاب کنید</option>
+                <option *ngFor="let gender of genders" [value]="gender.id">
+                    {{gender.value}}
+                </option>
+            </select>
+        </div>
+
+        <div class="roles-section">
+            <div class="roles-container">
+                <div class="available-roles">
+                    <h3>نقش‌های موجود</h3>
+                    <div class="role-list">
+                        <div *ngFor="let role of availableRoles" 
+                             class="role-item"
+                             (click)="addRole(role)">
+                            <span class="role-name">{{role.roleName}}</span>
+                            <span class="role-action">+</span>
+                        </div>
+                        <div *ngIf="availableRoles.length === 0" class="no-roles">
+                            نقشی موجود نیست
+                        </div>
+                    </div>
+                </div>
+
+                <div class="current-roles">
+                    <h3>نقش‌های فعلی</h3>
+                    <div class="role-list">
+                        <div *ngFor="let role of userDetail.currentRoles" 
+                             class="role-item"
+                             (click)="removeRole(role)">
+                            <span class="role-name">{{role.roleName}}</span>
+                            <span class="role-action">×</span>
+                        </div>
+                        <div *ngIf="userDetail.currentRoles.length === 0" class="no-roles">
+                            نقشی انتخاب نشده است
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="error-message" *ngIf="error">
+            {{error}}
+        </div>
+
+        <div class="form-actions">
+            <button 
+                type="button" 
+                class="btn btn-secondary" 
+                (click)="onCancel()"
+                [disabled]="loading"
+            >
+                انصراف
+            </button>
+            <button 
+                type="submit" 
+                class="btn btn-primary" 
+                [disabled]="!userForm.form.valid || loading"
+            >
+                <span *ngIf="loading" class="spinner"></span>
+                ذخیره
+            </button>
+        </div>
+    </form>
+</div>

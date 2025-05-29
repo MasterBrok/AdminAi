@@ -1,0 +1,21 @@
+<div class="login-wrapper">
+
+  <div class="login-container">
+ <div class="login-image-section">
+    <img src="assets/login.png" alt="ورود ادمین" />
+  </div>
+    <h2>ورود به پنل ادمین</h2>
+    <form (ngSubmit)="login()" *ngIf="!message || httpCode !== 200">
+      <input type="text" placeholder="نام کاربری" [(ngModel)]="username" name="username" required>
+      <input type="password" placeholder="رمز عبور" [(ngModel)]="password" name="password" required>
+      <button class="button-primary" type="submit" [disabled]="loading">{{ loading ? 'در حال ورود...' : 'ورود'
+        }}</button>
+    </form>
+    <div *ngIf="message" class="message">
+      {{ message }}
+      <!-- <span *ngIf="httpCode"> (کد: {{ httpCode }})</span> -->
+    </div>
+    <button *ngIf="message && httpCode === 200" class="logout-btn" (click)="logout()">خروج از حساب</button>
+  </div>
+ 
+</div>

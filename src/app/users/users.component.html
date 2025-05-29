@@ -1,0 +1,73 @@
+<div class="users-container">
+
+    <h2 style="color: var(--primary-color);">کاربران</h2>
+    <div class="filters-section">
+        <div class="search-box"> <input type="text" [(ngModel)]="tableState.filters.username"
+                placeholder="جستجو بر اساس نام کاربری" class="search-input" (keypress)="onKeyPress($event)">
+        </div>
+        <div class="search-box">
+            <input type="text" [(ngModel)]="tableState.filters.phone" placeholder="جستجو بر اساس شماره تلفن"
+                class="search-input" (keypress)="onKeyPress($event)">
+        </div>
+        <button class="new-user-btn" (click)="onNewUser()">
+            <span class="icon">+</span>
+            کاربر جدید
+        </button>
+    </div>
+
+    <div class="table-container">
+        <table class="users-table">
+            <div class="table-header">
+
+            </div>
+            <thead>
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام کاربری</th>
+                    <th>ایمیل</th>
+                    <th>آخرین فعالیت</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of displayedUsers; let i = index" class="user-row">
+                    <td>{{(tableState.page - 1) * tableState.pageSize + i + 1}}</td>
+                    <td>{{user.userName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{formatDate(user.onlineAt)}}</td>
+                    <td>
+                        <button class="edit-btn" (click)="onEdit(user)">
+                            <span class="icon">✏️</span>
+                            ویرایش
+                        </button>
+                    </td>
+                </tr>
+                <tr *ngIf="displayedUsers.length === 0" class="no-results">
+                    <td colspan="4">هیچ کاربری یافت نشد</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="pagination">
+        <div class="page-size"> <select [(ngModel)]="tableState.pageSize" (ngModelChange)="onPageSizeChange($event)"
+                class="page-size-select">
+                <option *ngFor="let size of pageSizeOptions" [ngValue]="size">
+                    {{size}} سطر در صفحه
+                </option>
+            </select>
+        </div>
+        <div class="page-controls">
+            <button [disabled]="tableState.page === 1" (click)="onPageChange(tableState.page - 1)" class="page-button">
+                قبلی
+            </button>
+            <span class="page-info">
+                صفحه {{tableState.page}} از {{apiResponse?.totalPages || 1}}
+            </span>
+            <button [disabled]="tableState.page === (apiResponse?.totalPages || 1)"
+                (click)="onPageChange(tableState.page + 1)" class="page-button">
+                بعدی
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.login-container {
+  /* از استایل سراسری استفاده می‌شود */
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  font-family: 'Vazirmatn';
+}
+
+h2 {
+  color: var(--text-100);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message {
+  animation: fadeInUp 0.5s;
+}

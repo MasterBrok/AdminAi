@@ -1,0 +1,117 @@
+<div class="add-user-container">
+    <h2>افزودن کاربر جدید</h2>
+
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="add-user-form">
+        <div class="form-group">
+            <label for="userName">نام کاربری</label>
+            <input 
+                type="text" 
+                id="userName"
+                name="userName"
+                [(ngModel)]="user.userName"
+                required
+                class="form-control"
+                [disabled]="loading"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="email">ایمیل</label>
+            <input 
+                type="email" 
+                id="email"
+                name="email"
+                [(ngModel)]="user.email"
+                required
+                email
+                class="form-control"
+                [disabled]="loading"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="password">رمز عبور</label>
+            <input 
+                type="password" 
+                id="password"
+                name="password"
+                [(ngModel)]="user.password"
+                required
+                class="form-control"
+                [disabled]="loading"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">شماره تلفن</label>
+            <input 
+                type="tel" 
+                id="phoneNumber"
+                name="phoneNumber"
+                [(ngModel)]="user.phoneNumber"
+                required
+                class="form-control"
+                [disabled]="loading"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="gender">جنسیت</label>
+            <select 
+                id="gender"
+                name="genderId"
+                [(ngModel)]="user.genderId"
+                required
+                class="form-control"
+                [disabled]="loading"
+            >
+                <option value="">انتخاب کنید</option>
+                <option *ngFor="let gender of genders" [value]="gender.id">
+                    {{gender.value}}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="avatar">آواتار</label>            <select 
+                id="avatar"
+                name="avatarId"
+                [(ngModel)]="user.avatarId"
+                required
+                class="form-control avatar-select"
+                [disabled]="loading"
+            >
+                <option value="">انتخاب کنید</option>
+                <option *ngFor="let avatar of avatars" [value]="avatar.id" [attr.data-image]="avatar.value">
+                    ⚪ {{avatar.value}}
+                </option>
+            </select>
+            <div class="selected-avatar" *ngIf="user.avatarId">
+                <img [src]="getSelectedAvatarUrl()" [alt]="getSelectedAvatarValue()" class="avatar-preview">
+            </div>
+        </div>
+
+        <div class="error-message" *ngIf="error">
+            {{error}}
+        </div>
+
+        <div class="form-actions">
+            <button 
+                type="button" 
+                class="btn btn-secondary" 
+                (click)="onCancel()"
+                [disabled]="loading"
+            >
+                انصراف
+            </button>
+            <button 
+                type="submit" 
+                class="btn btn-primary" 
+                [disabled]="!userForm.form.valid || loading"
+            >
+                <span *ngIf="loading" class="spinner"></span>
+                ذخیره
+            </button>
+        </div>
+    </form>
+</div>

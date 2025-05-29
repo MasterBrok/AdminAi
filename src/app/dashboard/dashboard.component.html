@@ -1,0 +1,22 @@
+<div class="dashboard-container">
+    <div class="sidebar">
+        <div class="user-profile">
+            <img [src]="user.avatar" alt="تصویر کاربر" class="user-avatar">
+            <span class="user-name">{{ user.name }}</span>
+        </div>
+        <nav class="menu">
+            <a *ngFor="let item of menuItems" 
+               [routerLink]="item.route"
+               routerLinkActive="active"
+               class="menu-item">
+                <span class="menu-icon">{{ item.icon }}</span>
+                <span class="menu-title">{{ item.title }}</span>
+            </a>
+        </nav>
+    </div>
+    <main class="main-content">
+        <div class="animated-gradient">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</div>
