@@ -1,4 +1,4 @@
-# AdminUi ASP.Net webapi
+# Admin Ai
 
 This project was generated using Angular and Asp.Net
 Tnx for Copilot Ai ❤️❤️
