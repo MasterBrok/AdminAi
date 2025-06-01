@@ -11,12 +11,14 @@ import { RouterModule } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   user = {
-    name: 'کاربر نمونه',
+    name: 'Brok',
     avatar: 'assets/profile-placeholder.png'
   };
   menuItems = [
     { title: 'داشبورد', route: '/dashboard/overview', icon: '🏠' },
     { title: 'کاربران', route: '/dashboard/users', icon: '👥' },
+    { title: 'پلیرها', route: '/dashboard/players', icon: '🎮' },
+    { title: 'جنسیت‌ها', route: '/dashboard/genders', icon: '🚻' },
     { title: 'تنظیمات', route: '/dashboard/settings', icon: '⚙️' },
     { title: 'گزارشات', route: '/dashboard/reports', icon: '📊' }
   ];

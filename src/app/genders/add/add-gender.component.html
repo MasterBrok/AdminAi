@@ -1,0 +1,37 @@
+<div class="add-gender-container">
+  <h2>افزودن جنسیت جدید</h2>
+  <form (ngSubmit)="onSubmit()" #genderForm="ngForm" class="add-gender-form">
+    <div class="form-group">
+      <label for="gender">عنوان جنسیت</label>
+      <input 
+        type="text" 
+        id="gender"
+        name="gender"
+        [(ngModel)]="gender.gender"
+        required
+        class="form-control"
+        [disabled]="loading"
+      >
+    </div>
+    <div class="error-message" *ngIf="error">
+      {{error}}
+    </div>
+    <div class="form-actions">
+      <button 
+        type="button" 
+        class="btn btn-secondary" 
+        [disabled]="loading"
+      >
+        انصراف
+      </button>
+      <button 
+        type="submit" 
+        class="btn btn-primary" 
+        [disabled]="!genderForm.form.valid || loading"
+      >
+        <span *ngIf="loading" class="spinner"></span>
+        ذخیره
+      </button>
+    </div>
+  </form>
+</div>

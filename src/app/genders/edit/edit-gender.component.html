@@ -1,0 +1,50 @@
+<div class="edit-gender-container">
+  <h2>ویرایش جنسیت</h2>
+  <form *ngIf="gender" (ngSubmit)="onSubmit()" #genderForm="ngForm" class="edit-gender-form">
+    <div class="form-group">
+      <label for="gender">عنوان جنسیت</label>
+      <input 
+        type="text" 
+        id="gender"
+        name="gender"
+        [(ngModel)]="gender.gender"
+        required
+        class="form-control"
+        [disabled]="loading"
+      >
+    </div>
+    <div class="form-group">
+      <label for="state">وضعیت</label>
+      <select 
+        id="state"
+        name="state"
+        [(ngModel)]="gender.state"
+        required
+        class="form-control"
+        [disabled]="loading"
+      >
+        <option *ngFor="let s of states" [ngValue]="s.id">{{s.value}}</option>
+      </select>
+    </div>
+    <div class="error-message" *ngIf="error">
+      {{error}}
+    </div>
+    <div class="form-actions">
+      <button 
+        type="button" 
+        class="btn btn-secondary" 
+        [disabled]="loading"
+      >
+        انصراف
+      </button>
+      <button 
+        type="submit" 
+        class="btn btn-primary" 
+        [disabled]="!genderForm.form.valid || loading"
+      >
+        <span *ngIf="loading" class="spinner"></span>
+        ذخیره
+      </button>
+    </div>
+  </form>
+</div>

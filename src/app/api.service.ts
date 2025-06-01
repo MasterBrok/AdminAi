@@ -11,6 +11,9 @@ export class ApiService {
     }
     constructor(private http: HttpClient) { }
 
+    getShort<T = any>(endpoint: string): Observable<T> {
+        return this.http.get<T>(`${API_BASE_URL}/${endpoint}`, { withCredentials: true });
+    }
     get<T = any>(endpoint: string, params?: any): Observable<ApiResponseWithData<T>> {
         let httpParams = new HttpParams();
         if (params) {
