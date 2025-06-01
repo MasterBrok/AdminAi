@@ -1,4 +1,4 @@
-<div class="dashboard-container">
+<div class="dashboard-container animated-gradient">
     <div class="sidebar">
         <div class="user-profile">
             <img [src]="user.avatar" alt="تصویر کاربر" class="user-avatar">
@@ -15,8 +15,26 @@
         </nav>
     </div>
     <main class="main-content">
-        <div class="animated-gradient">
-            <router-outlet></router-outlet>
+        <div class="theme-card">
+            <h3>انتخاب تم رنگی</h3>
+            <div class="theme-list">
+                <button class="theme-btn" (click)="setTheme('light')" [class.active]="activeTheme==='light'" style="background: linear-gradient(90deg,#f5f7fa,#c3cfe2,#e2eafc);color:#222;">Light</button>
+                <button class="theme-btn" (click)="setTheme('dark')" [class.active]="activeTheme==='dark'" style="background: linear-gradient(90deg,#232526,#414345,#232526);color:#fff;">Dark</button>
+            </div>
         </div>
+        <ng-container *ngIf="isDashboardHome()">
+            <div class="dashboard-widgets">
+                <div class="clock-widget">
+                    <div class="clock-time">{{ time }}</div>
+                    <div class="clock-date">{{ date }}</div>
+                </div>
+                <div class="weather-widget">
+                    <div class="weather-icon">☀️</div>
+                    <div class="weather-temp">25°C</div>
+                    <div class="weather-city">تهران</div>
+                </div>
+            </div>
+        </ng-container>
+        <router-outlet></router-outlet>
     </main>
 </div>

@@ -1,0 +1,94 @@
+<div class="edit-player-container">
+  <h2>ویرایش پلیر</h2>
+
+  <div *ngIf="!player" class="loading-state">
+    <div class="spinner"></div>
+    <p>در حال بارگذاری...</p>
+  </div>
+
+  <form *ngIf="player" (ngSubmit)="onSubmit()" #playerForm="ngForm" class="edit-player-form">
+    <div class="form-group">
+      <label for="nickName">نام مستعار</label>
+      <input 
+        type="text" 
+        id="nickName"
+        name="nickName"
+        [(ngModel)]="player.nickName"
+        required
+        class="form-control"
+        [disabled]="loading"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="userId">شناسه کاربر</label>
+      <input 
+        type="text" 
+        id="userId"
+        name="userId"
+        [(ngModel)]="player.userId"
+        required
+        class="form-control"
+        [disabled]="loading"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="avatarId">آواتار</label>
+      <select 
+        id="avatarId"
+        name="avatarId"
+        [(ngModel)]="player.avatarId"
+        required
+        class="form-control avatar-select"
+        [disabled]="loading"
+      >
+        <option value="">انتخاب کنید</option>
+        <option *ngFor="let avatar of avatars" [value]="avatar.id">
+          {{avatar.value}}
+        </option>
+      </select>
+      <div class="selected-avatar" *ngIf="player.avatarId">
+        <img [src]="getSelectedAvatarUrl()" alt="آواتار" class="avatar-preview">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="state">وضعیت</label>
+      <select 
+        id="state"
+        name="state"
+        [(ngModel)]="player.state"
+        class="form-control"
+        [disabled]="loading"
+      >
+        <option [ngValue]="0">فعال</option>
+        <option [ngValue]="1">غیرفعال</option>
+        <option [ngValue]="2">مسدود</option>
+      </select>
+    </div>
+
+    <div class="error-message" *ngIf="error">
+      {{error}}
+    </div>
+
+    <div class="form-actions">
+      <button 
+        type="button" 
+        class="btn btn-secondary" 
+        (click)="onCancel()"
+        [disabled]="loading"
+      >
+        انصراف
+      </button>
+      <button 
+        type="submit" 
+        class="btn btn-primary" 
+        [disabled]="!playerForm.form.valid || loading"
+      >
+        <span *ngIf="loading" class="spinner"></span>
+        ذخیره
+      </button>
+    </div>
+  </form>
+</div>

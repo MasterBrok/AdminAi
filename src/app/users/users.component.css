@@ -1,6 +1,6 @@
 .users-container {
     padding: 2rem;
-    background: white;
+    background: transparent;
     border-radius: var(--border-radius);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin: 1rem;
@@ -8,8 +8,6 @@
     height: calc(100vh - 2rem);
     display: flex;
     flex-direction: column;
-    font-family: 'Vazirmatn';
-
 }
 
 .search-section {
@@ -27,14 +25,18 @@
     padding: 0.75rem 1rem;
     border: 1px solid #e0e0e0;
     border-radius: var(--border-radius);
-    font-family: inherit;
+    font-family: var(--main-font);
+
     transition: all 0.3s ease;
+    background: var(--bg-100);
+    color: var(--text-100);
+    border: 1px solid var(--primary-200);
 }
 
 .search-input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    box-shadow: 0 0 0 2px var(--primary-200);
 }
 
 .filters-section {
@@ -43,7 +45,7 @@
     gap: 1rem;
     margin-bottom: 1rem;
     padding: 1rem;
-    background: #f8f9fa;
+    background: transparent;
     border-radius: var(--border-radius);
 }
 
@@ -57,14 +59,14 @@
     padding: 0.75rem 1rem;
     border: 1px solid #e0e0e0;
     border-radius: var(--border-radius);
-    font-family: inherit;
+
 }
 
 .table-container {
     flex: 1;
     overflow: auto;
     position: relative;
-    background: white;
+    background: transparent;
     border-radius: var(--border-radius);
     margin-top: 1rem;
 }
@@ -81,10 +83,11 @@
     background-color: var(--primary-color);
     color: white;
     border: none;
+    font-family: var(--main-font);
+    
     border-radius: var(--border-radius);
     padding: 0.75rem 1.5rem;
     display: flex;
-    font-family: 'Vazirmatn';
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
@@ -104,13 +107,13 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background: white;
+    background: transparent;
     border-radius: var(--border-radius);
 }
 
 .users-table th {
-    background-color: #f8f9fa;
-    color: #495057;
+    background-color: transparent;
+    color: var(--table-header-text);
     font-weight: 600;
     padding: 1rem;
     text-align: right;
@@ -119,42 +122,21 @@
 .users-table td {
     padding: 1rem;
     border-bottom: 1px solid #e9ecef;
+    color: var(--table-cell-text);
 }
 
 .user-row:hover {
-    background-color: #f8f9fa;
-}
-
-.edit-btn {
     background-color: transparent;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: var(--border-radius);
-    padding: 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: 'Vazirmatn';
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.edit-btn:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.edit-btn .icon {
-    font-size: 1rem;
-}
 
 .pagination {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background: #f8f9fa;
-    border-top: 1px solid #eee;
+    background: transparent;
+    border-top: 1px solid var(--primary-200);
     margin-top: auto;
 }
 
@@ -169,7 +151,11 @@
     border: 1px solid #e0e0e0;
     border-radius: var(--border-radius);
     background: white;
-    font-family: inherit;
+    font-family: var(--main-font);
+
+    background: var(--bg-100);
+    color: var(--text-100);
+    border: 1px solid var(--primary-200);
 }
 
 .page-size-select {
@@ -177,7 +163,6 @@
     border: 1px solid #e0e0e0;
     border-radius: var(--border-radius);
     background: white;
-    font-family: inherit;
     appearance: none;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
@@ -201,14 +186,17 @@
     padding: 0.5rem 1rem;
     border: 1px solid #e0e0e0;
     border-radius: var(--border-radius);
-    background: white;
+    background: var(--bg-100);
+    color: var(--text-100);
+    border: 1px solid var(--primary-200);
     cursor: pointer;
     transition: all 0.3s ease;
+
 }
 
 .page-button:hover:not(:disabled) {
     background: var(--primary-color);
-    color: white;
+    color: var(--bg-300);
     border-color: var(--primary-color);
 }
 
@@ -218,7 +206,7 @@
 }
 
 .page-info {
-    color: #666;
+    color: var(--text-200);
     min-width: 120px;
     text-align: center;
     display: inline-block;
@@ -226,7 +214,8 @@
 
 .no-results {
     text-align: center;
-    color: #6c757d;
+    color: var(--text-200);
+    background: transparent;
     padding: 2rem !important;
 }
 

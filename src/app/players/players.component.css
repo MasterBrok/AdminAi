@@ -1,0 +1,182 @@
+/* استایل دقیق pagination و فرم players مطابق users */
+.players-container {
+    padding: 2rem;
+    background: transparent;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    animation: fadeIn 0.3s ease-in-out;
+    height: calc(100vh - 2rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.filters-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.search-box {
+    flex: 1;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--primary-200);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    font-family: var(--main-font);
+
+    background: var(--bg-100);
+    color: var(--text-100);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-200);
+}
+
+.table-container {
+    flex: 1;
+    overflow: auto;
+    position: relative;
+    background: transparent;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
+
+.players-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: transparent;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.players-table th,
+.players-table td {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.players-table th {
+    color: var(--table-header-text);
+    background-color: transparent;
+    font-weight: 600;
+}
+
+.players-table td {
+    color: var(--table-cell-text);
+}
+
+.players-table tr:last-child td {
+    border-bottom: none;
+}
+
+.avatar-preview {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+    background: #f5f5f5;
+}
+
+.page-button,
+.edit-btn {
+    /* استایل حذف شد و فقط از styles.css استفاده شود */
+}
+
+.player-row {
+    transition: background 0.2s;
+}
+
+.player-row:hover {
+    background-color: transparent;
+}
+
+.no-results {
+    color: var(--text-200);
+    text-align: center;
+    background: transparent;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0 0 0;
+    gap: 1rem;
+    background: transparent;
+    border-top: 1px solid var(--primary-200);
+}
+
+.page-size {
+    flex: 0 0 auto;
+}
+
+.page-size select,
+.page-size-select {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-200);
+    background: var(--bg-100);
+    color: var(--text-100);
+}
+
+.page-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.page-button {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-200);
+    background: var(--bg-100);
+    color: var(--text-100);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.page-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.page-button:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: var(--bg-300);
+    border-color: var(--primary-color);
+}
+
+.page-info {
+    color: var(--text-200);
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .players-container {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    .players-table th,
+    .players-table td {
+        padding: 0.5rem 0.3rem;
+        font-size: 0.95rem;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+}

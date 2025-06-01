@@ -1,0 +1,64 @@
+<div class="players-container">
+  <h2 style="color: var(--primary-color);">پلیرها</h2>
+  <div class="filters-section">
+    <div class="search-box">
+      <input type="text" [(ngModel)]="tableState.filters.nickName" placeholder="جستجو بر اساس نام مستعار" class="search-input" (keypress)="onKeyPress($event)">
+    </div>
+    <div class="search-box">
+      <input type="text" [(ngModel)]="tableState.filters.tag" placeholder="جستجو بر اساس تگ" class="search-input" (keypress)="onKeyPress($event)">
+    </div>
+    <!-- دکمه افزودن پلیر در مراحل بعدی اضافه می‌شود -->
+  </div>
+  <div class="table-container">
+    <table class="players-table">
+      <thead>
+        <tr>
+          <th>ردیف</th>
+          <th>آواتار</th>
+          <th>نام مستعار</th>
+          <th>تگ</th>
+          <th>عملیات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of players; let i = index" class="player-row">
+          <td>{{(tableState.page - 1) * tableState.pageSize + i + 1}}</td>
+          <td>
+            <img *ngIf="player.avatar" [src]="player.avatar" class="avatar-preview" alt="avatar" />
+          </td>
+          <td>{{player.nickName}}</td>
+          <td>{{player.tag}}</td>
+          <td>
+            <button class="edit-btn" (click)="onEdit(player)">
+              <span class="icon">✏️</span>
+              ویرایش
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="players.length === 0" class="no-results">
+          <td colspan="5">هیچ پلیری یافت نشد</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination">
+    <div class="page-size">
+      <select [(ngModel)]="tableState.pageSize" (ngModelChange)="onPageSizeChange($event)" class="page-size-select">
+        <option *ngFor="let size of pageSizeOptions" [ngValue]="size">
+          {{size}} سطر در صفحه
+        </option>
+      </select>
+    </div>
+    <div class="page-controls">
+      <button [disabled]="tableState.page === 1" (click)="onPageChange(tableState.page - 1)" class="page-button">
+        قبلی
+      </button>
+      <span class="page-info">
+        صفحه {{tableState.page}} از {{totalPages || 1}}
+      </span>
+      <button [disabled]="tableState.page === (totalPages || 1)" (click)="onPageChange(tableState.page + 1)" class="page-button">
+        بعدی
+      </button>
+    </div>
+  </div>
+</div>

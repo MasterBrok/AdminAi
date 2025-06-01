@@ -1,0 +1,73 @@
+/* استایل مشابه سایر لیست‌ها */
+.genders-container {
+  padding: 2rem;
+  background: transparent;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+}
+.table-container {
+  margin-top: 1.5rem;
+}
+.genders-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent;
+  border-radius: var(--border-radius);
+}
+.genders-table th {
+  background-color: transparent;
+  color: var(--table-header-text);
+  font-weight: 600;
+  padding: 1rem;
+  text-align: right;
+}
+.genders-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  color: var(--table-cell-text);
+}
+.gender-row:hover {
+  background-color: transparent;
+}
+.edit-btn,
+.btn,
+.add-btn {
+    /* استایل حذف شد و فقط از styles.css استفاده شود */
+}
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: #1565c0;
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ffffff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.error-message {
+  color: #ff4d4f;
+  padding: 0.5rem;
+  text-align: right;
+}
+.no-results {
+  text-align: center;
+  color: var(--text-200);
+  background: transparent;
+  padding: 2rem !important;
+}

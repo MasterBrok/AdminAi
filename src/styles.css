@@ -2,75 +2,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary-color: #1890ff;
-  --background-color: #f0f2f5;
-  --text-color: #333;
-  --border-radius: 8px;
-  --transition-speed: 0.3s;
+    --primary-color: #1890ff;
+    --background-color: #f0f2f5;
+    --text-color: #333;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+    --primary-100: #B0C5D1;
+    --primary-200: #93a8b3;
+    --primary-300: #536771;
+    --accent-100: #D1B0C5;
+    --accent-200: #715467;
+    --text-100: #4D4D4D;
+    --text-200: #797979;
+    --bg-100: #E6F2EA;
+    --bg-200: #dce8e0;
+    --bg-300: #b4bfb8;
+    --table-header-text: #fffbe6;
+    --table-cell-text: #f3ffe0;
+
+
+    
+    --scrollbar-bg: var(--bg-200);
+    --scrollbar-thumb: var(--accent-100);
+    --scrollbar-thumb-hover: var(--accent-200);
+    --main-font: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  direction: rtl;
+    font-family: var(--main-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    direction: rtl;
 }
 
 .fade-in {
-  animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hover-effect {
-  transition: all var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .hover-effect:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap'); */
-
-/* پالت رنگی اصلی */
-:root {
-    --primary-100: #26A69A;
-    --primary-200: #408d86;
-    --primary-300: #cdfaf6;
-    --accent-100: #80CBC4;
-    --accent-200: #43A49B;
-    --text-100: #263339;
-    --text-200: #728f9e;
-    --bg-100: #E0F2F1;
-    --bg-200: #D0EBEA;
-    --bg-300: #FFFFFF;
-
-}
-
-
-body {
-    background: linear-gradient(135deg, var(--bg-100), var(--bg-200), var(--bg-300));
-    color: var(--text-100);
-    font-family: 'Vazirmatn';
-    min-height: 100vh;
-    margin: 0;
-    box-sizing: border-box;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* انیمیشن ساده برای ورود فرم */
@@ -96,7 +89,6 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: box-shadow 0.2s;
-    font-family: 'Vazirmatn';
     box-shadow: 0 2px 8px 0 var(--primary-300, #936a67, 0.1);
     width: 100%;
     max-width: 100%;
@@ -259,4 +251,113 @@ h2 {
     border-radius: 18px;
     box-shadow: 0 4px 32px 0 var(--primary-200, #408d86, 0.10);
     background: #fff;
+}
+
+/* دکمه‌های سراسری پروژه */
+.btn,
+.button,
+.page-button,
+.edit-btn,
+.add-btn {
+    font-family: var(--main-font);
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-200);
+    background: var(--bg-100);
+    color: var(--text-100);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary,
+.add-btn {
+    background: var(--primary-color);
+    color: var(--bg-300);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover,
+.add-btn:hover {
+    background: var(--accent-100);
+    color: var(--text-100);
+    border-color: var(--accent-200);
+}
+
+.btn-secondary {
+    background: var(--bg-200);
+    color: var(--text-100);
+    border: 1px solid var(--primary-200);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-100);
+    color: var(--text-100);
+}
+
+.page-button {
+    min-width: 80px;
+}
+
+.edit-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.edit-btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-300);
+}
+
+.add-btn {
+    background: var(--accent-100);
+    color: var(--bg-300);
+    border: 1px solid var(--accent-200);
+}
+
+.add-btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-300);
+    border-color: var(--primary-color);
+}
+
+.btn:disabled,
+.button:disabled,
+.page-button:disabled,
+.edit-btn:disabled,
+.add-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* اسکرول‌بار سفارشی برای کل پروژه */
+::-webkit-scrollbar {
+    width: 10px;
+    background: var(--scrollbar-bg);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--scrollbar-thumb), var(--primary-100));
+    border-radius: 8px;
+    min-height: 40px;
+    transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--scrollbar-thumb-hover), var(--primary-200));
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--scrollbar-bg);
+}
+
+/* برای فایرفاکس */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
 }

@@ -1,0 +1,39 @@
+<div class="genders-container">
+  <h2>لیست جنسیت‌ها</h2>
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner"></div>
+    <p>در حال بارگذاری...</p>
+  </div>
+  <div *ngIf="error" class="error-message">{{error}}</div>
+  <div class="table-container" *ngIf="!loading && !error">
+    <table class="genders-table">
+      <thead>
+        <tr>
+          <th>ردیف</th>
+          <th>عنوان</th>
+          <th>وضعیت</th>
+          <th>عملیات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gender of genders; let i = index" class="gender-row">
+          <td>{{i + 1}}</td>
+          <td>{{gender.gender}}</td>
+          <td>{{getStateText(gender.state)}}</td>
+          <td>
+            <button class="edit-btn" (click)="onEdit(gender)"><span class="icon">✏️</span>ویرایش</button>
+          </td>
+        </tr>
+        <tr *ngIf="genders.length === 0" class="no-results">
+          <td colspan="4">هیچ جنسیتی یافت نشد</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="form-actions">
+    <button class="btn btn-primary" (click)="onAdd()">
+      <span class="icon">+</span>
+      افزودن جنسیت جدید
+    </button>
+  </div>
+</div>
