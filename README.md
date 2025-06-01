@@ -1,21 +1,10 @@
 # AdminUi ASP.Net webapi
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.0.
+This project was generated using Angular and Asp.Net
+Tnx for Copilot Ai ❤️❤️
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
+![Shots](src/assets/Ui1.png)
+![Shots](src/assets/Ui2.png)
+![Shots](src/assets/Ui3.png)
+![Shots](src/assets/Ui4.png)
+![Shots](src/assets/Ui5.png)
