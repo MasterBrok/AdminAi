@@ -1,6 +1,6 @@
 .add-user-container {
     padding: 2rem;
-    background: white;
+    background: transparent;
     border-radius: var(--border-radius);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin: 1rem;
@@ -25,7 +25,9 @@ label {
 .form-control {
     width: 100%;
     padding: 0.75rem 1rem;
-    border: 1px solid #e0e0e0;
+    background: var(--bg-100);
+    color: var(--text-100);
+    border: 1px solid var(--primary-200);
     border-radius: var(--border-radius);
     font-family: inherit;
     transition: all 0.3s ease;
@@ -34,7 +36,7 @@ label {
 .form-control:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    box-shadow: 0 0 0 2px var(--primary-200);
 }
 
 .form-control:disabled {

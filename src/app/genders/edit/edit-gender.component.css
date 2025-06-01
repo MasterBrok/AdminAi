@@ -1,7 +1,7 @@
-/* استایل فرم ویرایش جنسیت */
+/* استایل فرم ویرایش جنسیت با رفرنس به پالت رنگی */
 .edit-gender-container {
   padding: 2rem;
-  background: white;
+  background: var(--bg-300);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin: 1rem;
@@ -16,16 +16,18 @@
 label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: var(--text-100);
   font-weight: 500;
 }
 .form-control {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--primary-200);
   border-radius: var(--border-radius);
   font-family: inherit;
   transition: all 0.3s ease;
+  background: var(--bg-100);
+  color: var(--text-100);
 }
 .form-control:focus {
   outline: none;
@@ -33,7 +35,7 @@ label {
   box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
 }
 .form-control:disabled {
-  background-color: #f5f5f5;
+  background-color: var(--bg-200);
   cursor: not-allowed;
 }
 .error-message {
@@ -60,22 +62,22 @@ label {
 }
 .btn-primary {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--bg-300);
 }
 .btn-primary:hover:not(:disabled) {
-  background-color: #1565c0;
+  background-color: var(--primary-200);
 }
 .btn-secondary {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: var(--bg-200);
+  color: var(--text-100);
 }
 .btn-secondary:hover:not(:disabled) {
-  background-color: #e0e0e0;
+  background-color: var(--bg-100);
 }
 .spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--bg-300);
   border-top-color: transparent;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
